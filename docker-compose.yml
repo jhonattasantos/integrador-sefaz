@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  integrador:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: cbmal-integrador
+    image: cbmal/integrador
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - cbmal-integrador
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-cbmal
+    ports:
+      - "3030:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - cbmal-integrador
+
+networks:
+  cbmal-integrador:
+    driver: bridge

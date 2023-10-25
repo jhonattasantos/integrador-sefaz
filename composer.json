@@ -1,0 +1,22 @@
+{
+    "name": "jhow/integrador.plataforma",
+    "authors": [
+        {
+            "name": "jhonatta santos",
+            "email": "jhonattasantoss@hotmail.com"
+        }
+    ],
+    "description": "Cbmal Integrador",
+    "scripts": {
+        "test": "vendor/phpunit/phpunit/phpunit tests/ --bootstrap vendor/autoload.php tests"
+    },
+    "autoload": {
+        "psr-4": {
+            "Integrador\\": "src/Integrador"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.6"
+    }
+}
